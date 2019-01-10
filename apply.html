@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>apply模拟实现</title>
+</head>
+<body>
+  <script>
+    Function.prototype.apply2 = function(context, arr) {
+      context = context || window;
+      context.fn = this;
+
+      var result;
+      if (!arr) {
+        result = context.fn();
+      } else {
+        var args = [];
+        for (var i = 0; i < arr.length; i++) {
+          args.push('arr['+ i +']');
+        }
+
+        result = eval('context.fn('+ args +')');
+      }
+
+      delete context.fn;
+
+      return result;
+    }
+
+    var foo = {
+      value: 1
+    }
+    var value = 'window value';
+    var bar = function(name, age) {
+      return {
+        value: this.value,
+        name: name,
+        age: age
+      }
+    }
+
+    console.log(bar.apply2(foo, ['shyshyshyshy', 23]));
+    console.log(bar.apply2(null, ['shyshyshyshy', 23]));
+  </script>
+</body>
+</html>
