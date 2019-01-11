@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组去重</title>
+</head>
+<body>
+  <script>
+    // 方法1
+    var arr1 = [1, 1, '1', '1'];
+    function unique1(array) {
+      var ret = [];
+
+      for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < ret.length; j++) {
+          if (array[i] === ret[j]) {
+            break;
+          }
+        }
+
+        if (j == ret.length) {
+          ret.push(array[i]);
+        }
+      }
+      return ret;
+    }
+
+    console.log(unique1(arr1));
+    // 方法2
+    var arr2 = [1, 1, '1'];
+    function unique2(array) {
+      var ret = [];
+      for (var i = 0; i < array.length; i++) {
+        if (ret.indexOf(array[i]) === -1) {
+          ret.push(array[i]);
+        }
+      }
+
+      return ret;
+    }
+
+    console.log(unique2(arr2));
+    // 方法3
+    var arr3 = [1, 1, '1', 10, 2, 10];
+    function unique3(array) {
+      var ret = [];
+      var seen;
+      var sortArray = array.concat().sort();
+      for (var i = 0; i < sortArray.length; i++) {
+        if (seen !== sortArray[i]) {
+          ret.push(sortArray[i]);
+        }
+
+        seen = sortArray[i];
+      }
+
+      return ret;
+    }
+
+    console.log(unique3(arr3));
+
+    // 方法4 数组是否排序过
+    var arr4 = [1, 1, '2', '2'];
+    function unique4(array, isSorted) {
+      var ret = [];
+      var seen;
+
+      for (var i = 0; i < array.length; i++) {
+        if (isSorted) {
+          if (seen !== array[i]) {
+            ret.push(array[i]);
+          }
+
+          seen = array[i];
+        } else {
+          if (ret.indexOf(array[i]) === -1) {
+            ret.push(array[i]);
+          }
+        }
+      }
+
+      return ret;
+    }
+
+    console.log(unique4(arr4, true));
+
+    // 方法5
+    var arr5 = [1, 1, 'a', 'A', 2, 2];
+    function unique5(array, isSorted, iteratee) {
+      var ret = [];
+      var seen = [];
+
+      for (var i = 0; i < array.length; i++) {
+        var value = array[i];
+        var computed = iteratee ? iteratee(value, i, array) : value;
+        if (isSorted) {
+          if (seen !== computed) {
+            ret.push(value);
+          }
+
+          seen = value;
+        } else if (iteratee) {
+          if (seen.indexOf(computed) === -1) {
+            seen.push(computed);
+            ret.push(value);
+          }
+        } else {
+          if (ret.indeOf(value) === -1) {
+            ret.push(value);
+          }
+        }
+      }
+
+      return ret;
+    }
+
+    console.log(unique5(arr5, true, function(item) {
+      return typeof item === 'string' ? item.toLowerCase() : item;
+    }))
+  </script>
+</body>
+</html>
