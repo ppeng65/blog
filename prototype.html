@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原型链</title>
+</head>
+<body>
+  <script>
+    function Person() {}
+    var person = new Person();
+
+    console.log(Person.prototype === person.__proto__);
+    console.log(Person.prototype.constructor === Person);
+    console.log(Object.getPrototypeOf(person) === Person.prototype);
+
+    // 当读取实例的属性时，如果找不到，就会查找与对象关联的原型中的属性，如果还找不到，就去找原型的原型，一直找到最顶层为止。
+    function Person1() {}
+    Person1.prototype.name = 'Kevin';
+    var person1 = new Person1();
+    person1.name = 'Daisy';
+    console.log(person1);
+    console.log(person1.name);
+
+    delete person1.name;
+    console.log(person1.name);
+
+    // 查看最顶层的原型
+    console.log(Object.prototype.__proto__ === null);
+  </script>
+</body>
+</html>
