@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>两端布局</title>
+  <style>
+    span{
+        width: 100px;
+        text-align: justify;
+        display: block;
+      }
+      span:after{
+        content:'.';
+        width: 100%;
+        display: inline-block;
+        overflow: hidden;
+        height: 0;
+      }
+      input{
+          width: 100px;
+      }
+  </style>
+</head>
+
+<body>
+  <div class="demo">
+    <div><span>昵称</span></div>
+    <div><span>电子邮箱</span></div>
+  </div>
+</body>
+
+</html>

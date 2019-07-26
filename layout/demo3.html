@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>margin重叠</title>
+  <style>
+    .box1 {
+      width: 200px;
+      height: 200px;
+      margin: 20px 0;
+    }
+    .box2 {
+      width: 200px;
+      height: 200px;
+      border: 50px solid transparent;
+    }
+    .box1 div {
+      background-color: red;
+    }
+    .box2 div {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <div>box1</div>
+  </div>
+  <div class="box2">
+    <div>box2</div>
+  </div>
+</body>
+</html>

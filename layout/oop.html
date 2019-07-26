@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>面向对象</title>
+</head>
+<body>
+  <script>
+    /* 
+      构造函数继承
+      缺点：子类继承不了父类prototype上的实例方法
+     */
+    function Parent1() {
+      this.name = 'Parent1';
+    }
+    Parent1.prototype.say = function() {
+      console.log('I am Parent1');
+    }
+
+    function Child1() {
+      Parent1.call(this);
+    }
+    /* 
+      原型链继承
+      缺点：通过子类实例出来实例对象操作父类的属性或者实例方法，会一改所有的子类都会改变。并且子类的constructor会指向父类。
+     */
+     function Parent2() {
+       this.name = 'Parent2';
+       this.play = [1, 2, 3];
+     }
+     
+     function Child2() {
+       this.type = 'Child2';
+     }
+     Child2.prototype = new Parent2();
+     Child2.prototype.constructor = Child2;
+     var c2 = new Child2();
+     var c22 = new Child2();
+     c2.play.push(4);
+     /* 
+      组合继承1
+      缺点：父类构造函数会被执行两次，和属性会被继承两次，子类的constructor指向父类。
+      */
+      function Parent3() {
+        this.name = 'Parent3';
+      }
+
+      function Child3() {
+        Parent3.call(this);
+        this.type = 'Child3';
+      }
+
+      Child3.prototype = new Parent3();
+      Child3.prototype.constructor = Child3;
+      var child3 = new Child3;
+      var parent3 = new Parent3;
+      /* 
+        组合继承2
+        缺点： 子类的constructor会指向父类
+       */
+      function Parent4() {
+        this.name = 'Parent4';
+      }
+
+      function Child4() {
+        Parent4.call(this);
+        this.type = 'Child4';
+      }
+
+      Child4.prototype = Parent4.prototype;
+      Child4.prototype.constructor = Child4;
+      var c4 = new Child4();
+      var p4 = new Parent4();
+
+      /* 
+        组合继承3
+       */
+      function Parent5(name) {
+         this.name = name;
+      }
+      // Parent5.prototype.name = '555';
+      function Child5() {
+        Parent5.apply(this, arguments);
+        this.type = 'Child5';
+      }
+      
+      Child5.prototype = Object.create(Parent5.prototype);
+      Child5.prototype.constructor = Child5;
+      var c5 = new Child5('child5');
+      var p5 = new Parent5('parent5');
+      // console.log(c5)
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>flex布局</h1>
+  <section class="layout flex">
+    <style>
+      .layout.flex {
+        display: flex;
+      }
+      .layout.flex .left, .layout.flex .right {
+        flex: 0 0 200px;
+        background-color: blue;
+      }
+      .layout.flex .center {
+        flex: 1;
+        background-color: red;
+      }
+    </style>
+    <div class="left">左侧边栏宽度固定</div>
+    <div class="center">
+      内容栏宽度自适应<br>高度增加一点，旁边的高度都会自动增加内容栏宽度自适应<br>高度增加一点，旁边的高度都会自动增加
+    </div>
+    <div class="right">右侧边栏宽度固定</div>
+  </section>
+
+  <h1>position布局</h1>
+  <section class="layout position">
+    <style>
+      .layout.position {
+        position: relative;
+      }
+      .layout.position .left, .layout.position .right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 200px;
+        background-color: blue;
+      }
+      .layout.position .center {
+        margin: 0 200px;
+        background-color: red;
+      }
+      .layout.position .left {
+        left: 0;
+      }
+      .layout.position .right {
+        right: 0;
+      }
+    </style>
+    <div class="left">左侧边栏宽度固定</div>
+    <div class="center">
+      内容栏宽度自适应<br>高度增加一点，旁边的高度都会自动增加内容栏宽度自适应<br>高度增加一点，旁边的高度都会自动增加
+    </div>
+    <div class="right">右侧边栏宽度固定</div>
+  </section>
+
+  <h1>tab布局</h1>
+  <section class="layout tab">
+    <style>
+      .layout.tab {
+        display: table;
+        width: 100%;
+      }
+      .layout.tab > div {
+        display: table-cell;
+      }
+      .layout.tab .left, .layout.tab .right {
+        width: 200px;
+        background-color: blue;
+      }
+      .layout.tab .center {
+        background-color: red;
+      }
+    </style>
+    <div class="left">左侧边栏宽度固定</div>
+    <div class="center">
+      内容栏宽度自适应<br>高度增加一点，旁边的高度都会自动增加内容栏宽度自适应<br>高度增加一点，旁边的高度都会自动增加
+    </div>
+    <div class="right">右侧边栏宽度固定</div>
+  </section>
+</body>
+</html>

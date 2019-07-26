@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>file文件显示</title>
+</head>
+<body>
+  <input type="file" id="file" >
+
+  <script>
+    var file = document.getElementById('file');
+    file.onchange = function(e) {
+      console.log(e.target.files)
+      handleFiles(e.target.files)
+    }
+    function handleFiles(files) {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+        if (!file.type.startsWith('image/')){ continue }
+
+        const img = document.createElement("img");
+        img.classList.add("obj");
+        img.file = file;
+        document.body.appendChild(img);
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          console.log(e.target)
+          img.src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+</body>
+</html>

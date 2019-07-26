@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>es6--proxy</title>
+</head>
+<body>
+  <script>
+    var dom = new Proxy({}, {
+      get(target, val, self) {
+        return function(attr={}, ...children) {
+          const el = document.createElement(val);
+          for (let prop of Object.keys(attr)) {
+            el.setAttribute(prop, attr[prop]);
+          }
+
+          for (let child of children) {
+            if (typeof child === 'string') {
+              child = document.createTextNode(child);
+            }
+            el.appendChild(child);
+          }
+
+          return el;
+        }
+      }
+    })
+
+
+    const el = dom.div({},
+      'Hello! My name is',
+      dom.a({href: 'http://www.baidu.com'}, 'ZhangPeng'),
+      'I like',
+      dom.ul({},
+        dom.li({}, 'The Web'),
+        dom.li({}, 'Food')
+      )
+    );
+    document.body.appendChild(el);
+  </script>
+</body>
+</html>

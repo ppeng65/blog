@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三栏布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .layout {
+      width: 100%;
+    }
+    .layout article div {
+      min-height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <style>
+    .layout.float .left {
+      float: left;
+      width: 300px;
+      background-color: red;
+    }
+    .layout.float .right {
+      float: right;
+      width: 300px;
+      background-color: blue;
+    }
+    .layout.float .center {
+      background-color: aqua;
+    }
+  </style>
+  <h1>浮动布局</h1>
+  <section class="layout float">
+    <article class="left-right-center">
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="center">
+        1、三栏布局-浮动布局；2、三栏布局-浮动布局；3、三栏布局-浮动布局；4、三栏布局-浮动布局；5、三栏布局-浮动布局
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+      </div>
+    </article>
+  </section>
+
+  <style>
+    .layout.position .left-center-right > div{
+      position: absolute;
+    }
+    .layout.position .left {
+      left: 0;
+      width: 300px;
+      background-color: red;
+    }
+    .layout.position .center {
+      left: 300px;
+      right: 300px;
+      background-color: aqua;
+    }
+    .layout.position .right {
+      right: 0;
+      width: 300px;
+      background-color: blue;
+    }
+  </style>
+  <h1>定位布局</h1>
+  <section class="layout position">
+    <article class="left-center-right">
+      <div class="left"></div>
+      <div class="center">
+        1、三栏布局-定位布局；2、三栏布局-定位布局；3、三栏布局-定位布局；4、三栏布局-定位布局；5、三栏布局-定位布局
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+
+  <style>
+    .layout.flex .left-center-right {
+      display: flex;
+    }
+    .layout.flex .left {
+      flex: 0 0 300px;
+      width: 300px;
+      background-color: red;
+    }
+    .layout.flex .center {
+      flex: 1;
+      background-color: aqua;
+    }
+    .layout.flex .right {
+      flex: 0 0 300px;
+      width: 300px;
+      background-color: blue;
+    }
+  </style>
+  <h1 style="margin-top: 300px;">flex布局</h1>
+  <section class="layout flex">
+    <article class="left-center-right">
+      <div class="left"></div>
+      <div class="center">
+        1、三栏布局-felx布局；2、三栏布局-felx布局；3、三栏布局-felx布局；4、三栏布局-felx布局；5、三栏布局-felx布局
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+
+  <style>
+    .layout.tab .left-center-right {
+      display: table;
+    }
+    .layout.tab .left-center-right > div {
+      display: table-cell;
+    }
+    .layout.tab .left {
+      width: 300px;
+      background-color: red;
+    }
+    .layout.tab .center {
+      background-color: aqua;
+    }
+    .layout.tab .right {
+      width: 300px;
+      background-color: blue;
+    }
+  </style>
+  <h1>表格布局</h1>
+  <section class="layout tab">
+    <article class="left-center-right">
+      <div class="left"></div>
+      <div class="center">
+        1、三栏布局-表格布局；2、三栏布局-表格布局；3、三栏布局-表格布局；4、三栏布局-表格布局；5、三栏布局-表格布局
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+
+
+  <style>
+    .layout.grid .left-center-right {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 300px 1fr 300px;
+    }
+    .layout.grid .left {
+      background-color: red;
+    }
+    .layout.grid .center {
+      background-color: aqua;
+    }
+    .layout.grid .right {
+      background-color: blue;
+    }
+  </style>
+  <h1>网格布局</h1>
+  <section class="layout grid">
+    <article class="left-center-right">
+      <div class="left"></div>
+      <div class="center">
+        1、三栏布局-网格布局；2、三栏布局-网格布局；3、三栏布局-网格布局；4、三栏布局-网格布局；5、三栏布局-网格布局
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+        <p>三栏布局</p>
+      </div>
+      <div class="right"></div>
+    </article>
+  </section>
+</body>
+</html>

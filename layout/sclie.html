@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组插值</title>
+</head>
+<body>
+  <script>
+    var currentArr = ['item1', 'item2', 'item3', 'item4', 'item5'];
+    var target = [
+                    { content: 'section1', index: 0 },
+                    { content: 'section2', index: 2 }
+                  ];
+    const injectSections = (items, sections) => {
+      sections.sort((a, b) => {
+        return b.index - a.index;
+      })
+      sections.forEach(item => {
+        items.splice(item.index, 0, item.content);
+      })
+      return items;
+      // sections.forEach(item => {
+      //   items[item.index] = [item.content, items[item.index]];
+      // })
+      // return [].concat.apply([], items);
+    }
+    console.log(injectSections(currentArr, target));
+  </script>
+</body>
+</html>
