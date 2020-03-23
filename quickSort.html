@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>快速排序</title>
+</head>
+<body>
+  <script>
+    // 快速排序
+    function quickSort(list) {
+      if (list.length < 2) {
+        return list;
+      }
+
+      let point = list[0];
+      let left = [];
+      let right = [];
+
+      for (let i = 1; i < list.length; i++) {
+        const curr = list[i];
+        if (point >= curr) {
+          left.push(curr);
+        } else if (point < curr) {
+          right.push(curr);
+        }
+      }
+
+      return quickSort(left).concat(point, quickSort(right));
+    }
+
+    console.log(quickSort([2,5,1,4,3]));
+  </script>
+</body>
+</html>

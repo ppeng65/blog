@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 256px;
+      height: 256px;
+      border-bottom: 1px solid #ccc;
+      text-align: justify;
+    }
+    .box:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+    }
+    .box:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    } 
+    .bar {
+      width: 20px;
+      height: 100px;
+      display: inline-block;
+      background-color: red;
+    }
+    div {
+      display: inline-block;
+      width: 140px; 
+      height: 10px; 
+      padding: 35px 0;
+      border-top: 10px solid; 
+      border-bottom: 10px solid; 
+      background-color: currentColor; 
+      background-clip: content-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <i class="bar"></i> 
+    <i class="bar"></i>
+    <i class="bar"></i>
+    <i class="bar"></i>
+  </div>
+</body>
+</html>

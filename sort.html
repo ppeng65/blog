@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>排序</title>
+</head>
+<body>
+  <script>
+  // 二分查找
+    // 方案一:
+    function binarySearch(list, item) {
+      let low = 0;
+      let high = list.length - 1;
+      while(low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        const guess = list[mid];
+        if (guess === item) {
+          return mid;
+        } else if (guess > item) {
+          high = mid - 1;
+        } else {
+          low = mid + 1;
+        }
+      }
+
+      return -1;
+    }
+
+    const list = [];
+    for (let i = 1; i < 100; i++) {
+      list.push(i);
+    }
+    console.log(binarySearch(list, 30));
+
+    // 方案二:
+    function binarySearch2(list, start, end, target) {
+      let index = Math.floor((end - start) / 2) + start;
+      const guess = list[index]
+      if (guess === target) return index;
+      else if (guess >  target) return binarySearch2(list, start, index - 1, target);
+      else if (guess < target) return binarySearch2(list, index + 1, end, target);
+      else return -1;
+    }
+
+    console.log(binarySearch2(list, 0, list.length, 30));
+  </script>
+</body>
+</html>

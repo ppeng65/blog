@@ -90,5 +90,36 @@
     </div>
     <div class="right">右侧边栏宽度固定</div>
   </section>
+
+  <h1>justify布局</h1>
+  <!-- 此处不能换行 ！！！-->
+  <div class="box"><span class="bar"></span>
+    <style>
+      .box {
+        width: 256px;
+        height: 256px;
+        text-align: justify;
+        border-bottom: 1px solid #ccc;
+      }
+      .box:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+      }
+      .box:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+      }
+      .box .bar {
+        display: inline-block;
+        width: 20px;
+        height: 200px;
+        background: blue;
+      }
+    </style>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
 </body>
 </html>

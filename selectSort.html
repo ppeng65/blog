@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>选择排序</title>
+</head>
+<body>
+  <script>
+  // 选择排序
+    //  方案一:
+    function selectSort(list) {
+      const len = list.length;
+      if (len === 0) return;
+
+      for (let i = 0; i < len; i++) {
+        for (let j = i + 1; j < len; j++) {
+          if (list[i] > list[j]) {
+            [list[i], list[j]] = [list[j], list[i]];
+          }
+        }
+      }
+
+      return list;
+    }
+
+    console.log(selectSort([2,5,3,4,1]));
+
+    // 方案二:
+    function findSmallest(list) {
+      let smallest = list[0];
+      let smallestIndex = 0;
+
+      for (let i = 1; i < list.length; i++) {
+        if (smallest > list[i]) {
+          smallest = list[i];
+          smallestIndex = i;
+        }
+      }
+
+      return smallestIndex;
+    }
+
+    function selectSort2(list) {
+      let newList = [];
+
+      for (let i = list.length - 1; i >= 0; i--) {
+        const smallestIndex = findSmallest(list);
+        newList.push(list.splice(smallestIndex, 1)[0]);
+      }
+
+      return newList;
+    }
+
+    console.log(selectSort2([1, 1, 1, 2, 3, 1]));
+  </script>
+</body>
+</html>
